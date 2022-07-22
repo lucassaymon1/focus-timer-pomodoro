@@ -1,0 +1,96 @@
+:root {
+  font-size: 62.5%;
+  --bg-color: #121214;
+  --primary-color: #42d3ff;
+  --txt-color: white;
+
+  --hue: 258;
+  --hue-sec: calc((var(--hue)) - 100);
+  --ctrl-color: hsla(var(--hue), 100%, 63%, 0.13);
+  --buttons-color: hsl(var(--hue), 100%, 63%);
+  --buttons-colorsec: hsl(var(--hue-sec), 100%, 63%);
+
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', Sans-serif;
+  color: var(--txt-color);
+  font-weight: 700;
+  background-color: var(--bg-color);
+  display: grid;
+  min-height: 100vh;
+}
+
+main {
+  /*propriedades desbloqueadas a partir do elemento pai (body) com disolay grid*/
+
+  justify-self: center;
+  /*eixo x*/
+  align-self: center;
+  /*eixo y*/
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.timer {
+  display: flex;
+  font-size: 8.8rem;
+  font-size: clamp(4rem, 4rem + 10vw, 8.8rem);
+
+  margin-bottom: 1.6rem;
+
+  /*Para tirar os espaços dos spans (A caixa de span por padrão tem esses espaços)*/
+}
+
+.hide {
+  display: none;
+
+  /*Aqui uma classe que será inserida nos elementos para que o display desapareça. Ela será controlada pelo javascript*/
+}
+
+.controls {
+  background-color: var(--ctrl-color);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  gap: 3.2rem;
+
+  width: clamp(10rem, 10rem + 30vw, 22.8rem);
+  height: clamp(8rem, 5rem + 10vw, 10.8rem);
+}
+
+.play svg path,
+.set svg path,
+.sound-on svg path {
+  fill: var(--buttons-color);
+  /*Dentro da classe tal, dentro do svg, dentro do path(path está contido em svg). Lá vai estar a propriedade fill que é usada para modificar a cor*/
+}
+
+.pause svg path,
+.stop svg path,
+.sound-off svg path {
+  fill: var(--buttons-colorsec);
+}
+
+button svg {
+  width: clamp(3.2rem, 2rem + 12vw, 6.4rem);
+}
+
+footer {
+  justify-self: end;
+  align-self: end;
+
+  padding: 0 4rem 3.2rem 0rem;
+}
